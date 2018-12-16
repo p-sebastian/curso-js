@@ -330,3 +330,75 @@
 
 
 })();
+
+(() => {
+
+  var names = ['Edo', 'John', 'Jane'];
+  var years = new Array(1991, 1969, 1948);
+  console.log(names[0]);
+  console.log(names.length);
+  names[1] = "Ben";
+  console.log(names);
+  names[5] = 'Mary';
+  console.log(names);
+  console.log(names.length);
+
+  names.push('Alejandro');
+  console.log(names);
+  names.unshift('Akari');
+  console.log(names);
+  names.pop();
+  console.log(names);
+
+  names.shift()
+  console.log(names);
+
+  console.log(names.indexOf('Edo'));
+
+  var isDesigner = names.indexOf('designer') === -1 ? names[0] + ' is not a designer.' : names[0] + 'is a designer';
+
+  console.log(isDesigner)
+
+
+
+})();
+
+
+(() => {
+  var bills = [124, 48, 268];
+  var tips = [];
+  var paidAmount = [];
+  function tipCalculator(bill) {
+    var tip;
+    if (bill < 50) {
+      tip = bill * 0.2;
+    } else if (bill >= 50 && bill <= 200) {
+      tip = bill * 0.15;
+    } else {
+      tip = bill * 0.1;
+    }
+    return tip;
+  }
+
+  var tip = tipCalculator(bills[0]);
+  tips.push(tip);
+  paidAmount.push(tip + bills[0]);
+
+  tip = tipCalculator(bills[1]);
+  tips.push(tip);
+  paidAmount.push(tip + bills[1]);
+  
+  tip = tipCalculator(bills[2]);
+  tips.push(tip);
+  paidAmount.push(tip + bills[2]);
+
+  
+  // bills.forEach(b => {
+  //   var tip = tipCalculator(b);
+  //   tips.push(tip);
+  //   paidAmount.push(tip + b);
+  // });
+  
+  console.log(paidAmount);
+  console.log(tips);
+})();
