@@ -306,8 +306,64 @@
 // })();
 
 
-(() => {
+// (() => {
 
+//   //function declaration
+//   function whatDoYouDo(job, firstName) {}
+//   //function expression
+//   var whatDoYouDo = function(job, firstName) {
+//     switch(job) {
+//       case 'teacher':
+//         return firstName + ' teaches how to code.';
+//       case 'driver':
+//         return firstName + ' drives a cab.';
+//       case 'designer':
+//         return firstName + ' designs nice websites.';
+//       case 'senpai':
+//         return firstName + ' is a senpai.';
+//       default:
+//         return firstName + ' does something';
+//     }
+//   }
+//   console.log(whatDoYouDo('senpai', 'Sebaschan'))
+
+// })();
+
+// (() => {
+// ///// Objects and properties
+
+// //object Literal
+// var edo = {
+//   firstName: 'Eduardo',
+//   lastName: 'Serrano',
+//   birthYear: 1991,
+//   family: ['Santiago', 'Isabel', 'Maria', 'Isa', 'Juan' ],
+//   job: 'Casa Veranda',
+//   isMarried: false
+// };
+
+// console.log(edo.firstName + ' ' + edo.lastName, + ' was born in ' + edo.birthYear, );
+// console.log(edo.birthYear)
+
+// //dot notation
+// edo.firstName = 'Edo'
+// console.log(edo.firstName);
+// //bracket notation
+// edo['isMarried'] = true;
+// console.log(edo['isMarried']);
+
+// //new object syntax
+// var akari = new Object(
+//   akari.firstName = 'Akari';
+//   akari.lastName = 'Tamashiro';
+//   akari.birthYear = 1994;
+//   akari.family = ['Takeshi', 'Noriko', 'Sacchan', 'Marin', 'Lilia'];
+//   akari.job = 'Airport';
+//   akari.isMarried = false;
+// )
+// })();
+
+(() => {
   //function declaration
   function whatDoYouDo(job, firstName) {}
   //function expression
@@ -401,4 +457,101 @@
   
   console.log(paidAmount);
   console.log(tips);
+})();
+
+// (() => {
+// //Objects and methods
+// var edo = {
+//   firstName: 'Eduardo',
+//   lastName: 'Serrano',
+//   birthYear: 1991,
+//   family: ['Santiago', 'Isabel', 'Maria', 'Isa', 'Juan' ],
+//   job: 'Casa Veranda',
+//   isMarried: false,
+//   calculateAge: function() {
+//     return  2018 - this.birthYear;
+//   }
+// };
+// console.log(edo.calculateAge(edo.birthYear));
+// edo.age = edo.calculateAge();
+// console.log(edo);
+
+// })()
+
+// (() => {
+//   /////////////////////////////////Coding Challenge 4
+//   var edo = {
+//     fullName: 'Eduardo Serrano',
+//     mass: 68,
+//     height: 1.78,
+//     calcBMI: function() {
+//       return this.BMI = this.mass / (this.height^2)
+//     }
+//   };
+  
+//   var sebas = {
+//     fullName: 'Sebastian Penafiel',
+//     mass: 75,
+//     height: 1.69,
+//     calcBMI: function() {
+//       return this.BMI = this.mass / (this.height^2);
+//     }
+//   };
+
+//   edo.calcBMI();
+//   sebas.calcBMI();
+//   if(edo.BMI > sebas.BMI) {
+//     console.log(edo.fullName + ' is bigger than ' + sebas.fullName + ' and has a BMI of ' + edo.BMI + '.');
+//   } else if(sebas.BMI > edo.BMI) {
+//     console.log(sebas.fullName + ' is bigger than ' + edo.fullName + ' and has a BMI of ' + sebas.BMI + '.');
+//   } else {
+//     console.log('Both ' + edo.fullName + ' and ' + sebas.fullName + 'have a BMI of ' + edo.BMI + '.');
+//   }
+  
+
+// })();
+
+(() => {
+    // //loops and iterations
+    //   //for loop
+    //   for (var i = 0; i < 10; i++) {
+    //     console.log(i);
+    //   }
+
+    //   for (var i = 0; i <= 20; i +=5) {
+    //     console.log(i);
+    //   }
+
+    //   var john = ['john', 'smith', 1990, 'designer', false];
+
+    //   for(var i = 0; i < john.length; i++) {
+    //     console.log(john[i]);
+    //   }
+
+
+    //   //whole loops
+    //   var i = 0;
+    //   while(i<john.length) {
+    //     console.log(john[i]); 
+    //     i++;
+    //   }
+    
+      //continue and break statements
+      var john = ['john', 'smith', 1990, 'designer', false];
+      for(var i = 0; i < john.length; i++) {
+        if(typeof john[i] !== 'string') continue;
+          console.log(john[i]);
+      };
+
+    
+      for(var i = 0; i < john.length; i++) {
+        if(typeof john[i] !== 'string') break;
+          console.log(john[i]);
+        
+      }
+
+      for(var i = john.length -1; i >= 0; i--) {
+        console.log(john[i]);
+      }
+
 })();
