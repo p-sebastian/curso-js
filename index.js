@@ -363,267 +363,326 @@
 // )
 // })();
 
-(() => {
-  //function declaration
-  function whatDoYouDo(job, firstName) {}
-  //function expression
-  var whatDoYouDo = function(job, firstName) {
-    switch(job) {
-      case 'teacher':
-        return firstName + ' teaches how to code.';
-      case 'driver':
-        return firstName + ' drives a cab.';
-      case 'designer':
-        return firstName + ' designs nice websites.';
-      case 'senpai':
-        return firstName + ' is a senpai.';
-      default:
-        return firstName + ' does something';
-    }
-  }
-  console.log(whatDoYouDo('senpai', 'Sebaschan'))
-
-
-
-})();
-
-(() => {
-
-  var names = ['Edo', 'John', 'Jane'];
-  var years = new Array(1991, 1969, 1948);
-  console.log(names[0]);
-  console.log(names.length);
-  names[1] = "Ben";
-  console.log(names);
-  names[5] = 'Mary';
-  console.log(names);
-  console.log(names.length);
-
-  names.push('Alejandro');
-  console.log(names);
-  names.unshift('Akari');
-  console.log(names);
-  names.pop();
-  console.log(names);
-
-  names.shift()
-  console.log(names);
-
-  console.log(names.indexOf('Edo'));
-
-  var isDesigner = names.indexOf('designer') === -1 ? names[0] + ' is not a designer.' : names[0] + 'is a designer';
-
-  console.log(isDesigner)
-
-
-
-})();
-
-
-(() => {
-  var bills = [124, 48, 268];
-  var tips = [];
-  var paidAmount = [];
-  function tipCalculator(bill) {
-    var tip;
-    if (bill < 50) {
-      tip = bill * 0.2;
-    } else if (bill >= 50 && bill <= 200) {
-      tip = bill * 0.15;
-    } else {
-      tip = bill * 0.1;
-    }
-    return tip;
-  }
-
-  var tip = tipCalculator(bills[0]);
-  tips.push(tip);
-  paidAmount.push(tip + bills[0]);
-
-  tip = tipCalculator(bills[1]);
-  tips.push(tip);
-  paidAmount.push(tip + bills[1]);
-  
-  tip = tipCalculator(bills[2]);
-  tips.push(tip);
-  paidAmount.push(tip + bills[2]);
-
-  
-  // bills.forEach(b => {
-  //   var tip = tipCalculator(b);
-  //   tips.push(tip);
-  //   paidAmount.push(tip + b);
-  // });
-  
-  console.log(paidAmount);
-  console.log(tips);
-})();
-
 // (() => {
-// //Objects and methods
-// var edo = {
-//   firstName: 'Eduardo',
-//   lastName: 'Serrano',
-//   birthYear: 1991,
-//   family: ['Santiago', 'Isabel', 'Maria', 'Isa', 'Juan' ],
-//   job: 'Casa Veranda',
-//   isMarried: false,
-//   calculateAge: function() {
-//     return  2018 - this.birthYear;
-//   }
-// };
-// console.log(edo.calculateAge(edo.birthYear));
-// edo.age = edo.calculateAge();
-// console.log(edo);
-
-// })()
-
-// (() => {
-//   /////////////////////////////////Coding Challenge 4
-//   var edo = {
-//     fullName: 'Eduardo Serrano',
-//     mass: 68,
-//     height: 1.78,
-//     calcBMI: function() {
-//       return this.BMI = this.mass / (this.height^2)
+//   //function declaration
+//   function whatDoYouDo(job, firstName) {}
+//   //function expression
+//   var whatDoYouDo = function(job, firstName) {
+//     switch(job) {
+//       case 'teacher':
+//         return firstName + ' teaches how to code.';
+//       case 'driver':
+//         return firstName + ' drives a cab.';
+//       case 'designer':
+//         return firstName + ' designs nice websites.';
+//       case 'senpai':
+//         return firstName + ' is a senpai.';
+//       default:
+//         return firstName + ' does something';
 //     }
-//   };
-  
-//   var sebas = {
-//     fullName: 'Sebastian Penafiel',
-//     mass: 75,
-//     height: 1.69,
-//     calcBMI: function() {
-//       return this.BMI = this.mass / (this.height^2);
-//     }
-//   };
-
-//   edo.calcBMI();
-//   sebas.calcBMI();
-//   if(edo.BMI > sebas.BMI) {
-//     console.log(edo.fullName + ' is bigger than ' + sebas.fullName + ' and has a BMI of ' + edo.BMI + '.');
-//   } else if(sebas.BMI > edo.BMI) {
-//     console.log(sebas.fullName + ' is bigger than ' + edo.fullName + ' and has a BMI of ' + sebas.BMI + '.');
-//   } else {
-//     console.log('Both ' + edo.fullName + ' and ' + sebas.fullName + 'have a BMI of ' + edo.BMI + '.');
 //   }
-  
+//   console.log(whatDoYouDo('senpai', 'Sebaschan'))
+
+
 
 // })();
 
-(() => {
-    // //loops and iterations
-    //   //for loop
-    //   for (var i = 0; i < 10; i++) {
-    //     console.log(i);
-    //   }
+// (() => {
 
-    //   for (var i = 0; i <= 20; i +=5) {
-    //     console.log(i);
-    //   }
+//   var names = ['Edo', 'John', 'Jane'];
+//   var years = new Array(1991, 1969, 1948);
+//   console.log(names[0]);
+//   console.log(names.length);
+//   names[1] = "Ben";
+//   console.log(names);
+//   names[5] = 'Mary';
+//   console.log(names);
+//   console.log(names.length);
 
-    //   var john = ['john', 'smith', 1990, 'designer', false];
+//   names.push('Alejandro');
+//   console.log(names);
+//   names.unshift('Akari');
+//   console.log(names);
+//   names.pop();
+//   console.log(names);
 
-    //   for(var i = 0; i < john.length; i++) {
-    //     console.log(john[i]);
-    //   }
+//   names.shift()
+//   console.log(names);
+
+//   console.log(names.indexOf('Edo'));
+
+//   var isDesigner = names.indexOf('designer') === -1 ? names[0] + ' is not a designer.' : names[0] + 'is a designer';
+
+//   console.log(isDesigner)
 
 
-    //   //whole loops
-    //   var i = 0;
-    //   while(i<john.length) {
-    //     console.log(john[i]); 
-    //     i++;
-    //   }
+
+// })();
+
+
+// (() => {
+//   var bills = [124, 48, 268];
+//   var tips = [];
+//   var paidAmount = [];
+//   function tipCalculator(bill) {
+//     var tip;
+//     if (bill < 50) {
+//       tip = bill * 0.2;
+//     } else if (bill >= 50 && bill <= 200) {
+//       tip = bill * 0.15;
+//     } else {
+//       tip = bill * 0.1;
+//     }
+//     return tip;
+//   }
+
+//   var tip = tipCalculator(bills[0]);
+//   tips.push(tip);
+//   paidAmount.push(tip + bills[0]);
+
+//   tip = tipCalculator(bills[1]);
+//   tips.push(tip);
+//   paidAmount.push(tip + bills[1]);
+  
+//   tip = tipCalculator(bills[2]);
+//   tips.push(tip);
+//   paidAmount.push(tip + bills[2]);
+
+  
+//   // bills.forEach(b => {
+//   //   var tip = tipCalculator(b);
+//   //   tips.push(tip);
+//   //   paidAmount.push(tip + b);
+//   // });
+  
+//   console.log(paidAmount);
+//   console.log(tips);
+// })();
+
+// // (() => {
+// // //Objects and methods
+// // var edo = {
+// //   firstName: 'Eduardo',
+// //   lastName: 'Serrano',
+// //   birthYear: 1991,
+// //   family: ['Santiago', 'Isabel', 'Maria', 'Isa', 'Juan' ],
+// //   job: 'Casa Veranda',
+// //   isMarried: false,
+// //   calculateAge: function() {
+// //     return  2018 - this.birthYear;
+// //   }
+// // };
+// // console.log(edo.calculateAge(edo.birthYear));
+// // edo.age = edo.calculateAge();
+// // console.log(edo);
+
+// // })()
+
+// // (() => {
+// //   /////////////////////////////////Coding Challenge 4
+// //   var edo = {
+// //     fullName: 'Eduardo Serrano',
+// //     mass: 68,
+// //     height: 1.78,
+// //     calcBMI: function() {
+// //       return this.BMI = this.mass / (this.height^2)
+// //     }
+// //   };
+  
+// //   var sebas = {
+// //     fullName: 'Sebastian Penafiel',
+// //     mass: 75,
+// //     height: 1.69,
+// //     calcBMI: function() {
+// //       return this.BMI = this.mass / (this.height^2);
+// //     }
+// //   };
+
+// //   edo.calcBMI();
+// //   sebas.calcBMI();
+// //   if(edo.BMI > sebas.BMI) {
+// //     console.log(edo.fullName + ' is bigger than ' + sebas.fullName + ' and has a BMI of ' + edo.BMI + '.');
+// //   } else if(sebas.BMI > edo.BMI) {
+// //     console.log(sebas.fullName + ' is bigger than ' + edo.fullName + ' and has a BMI of ' + sebas.BMI + '.');
+// //   } else {
+// //     console.log('Both ' + edo.fullName + ' and ' + sebas.fullName + 'have a BMI of ' + edo.BMI + '.');
+// //   }
+  
+
+// // })();
+
+// (() => {
+//     // //loops and iterations
+//     //   //for loop
+//     //   for (var i = 0; i < 10; i++) {
+//     //     console.log(i);
+//     //   }
+
+//     //   for (var i = 0; i <= 20; i +=5) {
+//     //     console.log(i);
+//     //   }
+
+//     //   var john = ['john', 'smith', 1990, 'designer', false];
+
+//     //   for(var i = 0; i < john.length; i++) {
+//     //     console.log(john[i]);
+//     //   }
+
+
+//     //   //whole loops
+//     //   var i = 0;
+//     //   while(i<john.length) {
+//     //     console.log(john[i]); 
+//     //     i++;
+//     //   }
     
-      //continue and break statements
-      var john = ['john', 'smith', 1990, 'designer', false];
-      for(var i = 0; i < john.length; i++) {
-        if(typeof john[i] !== 'string') continue;
-          console.log(john[i]);
-      };
+//       //continue and break statements
+//       var john = ['john', 'smith', 1990, 'designer', false];
+//       for(var i = 0; i < john.length; i++) {
+//         if(typeof john[i] !== 'string') continue;
+//           console.log(john[i]);
+//       };
 
     
-      for(var i = 0; i < john.length; i++) {
-        if(typeof john[i] !== 'string') break;
-          console.log(john[i]);
+//       for(var i = 0; i < john.length; i++) {
+//         if(typeof john[i] !== 'string') break;
+//           console.log(john[i]);
         
-      }
+//       }
 
-      for(var i = john.length -1; i >= 0; i--) {
-        console.log(john[i]);
-      }
+//       for(var i = john.length -1; i >= 0; i--) {
+//         console.log(john[i]);
+//       }
 
-})();
+// })();
 
 
 (() => {
-  //coding Challenge 5
-  var total = {
-    bills: [124, 48, 268, 180, 42],
-    tip: [],
-    totals: [],
-    tipCalculator: function() {
-      for (var i = 0; i < this.bills.length; i++) {
-        if (this.bills[i] < 50) {
-          this.tip.push (this.bills[i] * 0.20);
-          this.totals.push (this.bills[i] * 1.20)
-        } else if (this.bills[i] >= 50 && this.bills[i] < 200) {
-          this.tip.push (this.bills[i] * 0.15);
-          this.totals.push (this.bills[i] * 1.15)
-        } else {
-          this.tip.push (this.bills[i] * 0.10);
-          this.totals.push (this.bills[i] * 1.10);
-        }
-      }
-      return this.totals;
-    }
-  };
-  total.tipCalculator();
-  console.log(total.tip);
-  console.log(total.totals);
+//   //coding Challenge 5
+//   var total = {
+//     bills: [124, 48, 268, 180, 42],
+//     tips: [],
+//     totals: [],
+//     tipCalculator: function() {
+//       for (var i = 0; i < this.bills.length; i++) {
+//         if (this.bills[i] < 50) {
+//           this.tips.push (this.bills[i] * 0.20);
+//           this.totals.push (this.bills[i] * 1.20)
+//         } else if (this.bills[i] >= 50 && this.bills[i] < 200) {
+//           this.tips.push (this.bills[i] * 0.15);
+//           this.totals.push (this.bills[i] * 1.15)
+//         } else {
+//           this.tips.push (this.bills[i] * 0.10);
+//           this.totals.push (this.bills[i] * 1.10);
+//         }
+//       }
+//       return this.totals;
+//     }
+//   };
+//   total.tipCalculator();
+//   console.log(total.tips);
+//   console.log(total.totals);
  
 
-  var mark = {
-    bills: [77, 375, 110, 45],
-    tips: [],
-    totals: [],
+//   var mark = {
+//     bills: [77, 375, 110, 45],
+//     tips: [],
+//     totals: [],
+//     tipCalculator: function() {
+//       for (var i = 0; i < this.bills.length; i++) {
+//         if (this.bills[i] < 100) {
+//           this.tips.push (this.bills[i] * 0.20);
+//           this.totals.push (this.bills[i] * 1.20)
+//         } else if (this.bills[i] >= 100 && this.bills[i] < 300) {
+//           this.tips.push (this.bills[i] * 0.10);
+//           this.totals.push (this.bills[i] * 1.10)
+//         } else {
+//           this.tips.push (this.bills[i] * 0.25);
+//           this.totals.push (this.bills[i] * 1.25);
+//         }
+//       }
+//       return this.totals;
+//     }
+//   };
+//   mark.tipCalculator();
+//   console.log(mark.tips)
+//   var averageJohn = 0;
+//   var averageMark = 0;
+
+//   function tipAverage(tips) {
+//     var store = 0;
+//     for(var i = 0; i < tips.length; i++) {
+//       store += tips[i];
+//     };
+//     return store / tips.length;
+//   }
+// averageMark = tipAverage(mark.tips);
+// averageJohn = tipAverage(total.tips)
+// console.log(averageMark);
+
+
+
+
+  var john = {
+    fullName: 'John',
+    bills: [124, 48, 268, 180, 42],
     tipCalculator: function() {
+      this.tips = [];
+      this.totals = [];
       for (var i = 0; i < this.bills.length; i++) {
-        if (this.bills[i] < 100) {
-          this.tips.push (this.bills[i] * 0.20);
-          this.totals.push (this.bills[i] * 1.20)
-        } else if (this.bills[i] >= 100 && this.bills[i] < 300) {
-          this.tips.push (this.bills[i] * 0.10);
-          this.totals.push (this.bills[i] * 1.10)
+        var percentage;
+        if(this.bills[i] < 50) {
+          percentage = 0.20;
+        } else if (this.bills[i] >= 50 && this.bills[i] < 200) {
+          percentage = 0.15;
         } else {
-          this.tips.push (this.bills[i] * 0.25);
-          this.totals.push (this.bills[i] * 1.25);
+          percentage = 0.10
         }
+        this.tips[i] = this.bills[i] * percentage;
+        this.totals[i] = this.bills[i] * (1 + percentage);
       }
-      return this.totals;
     }
   };
+
+  var mark = {
+    fullName: 'Mark',
+    bills: [77, 475, 110, 45],
+    tipCalculator: function() {
+      this.tips = [];
+      this.totals = [];
+      for (var i = 0; i < this.bills.length; i++) {
+        var percentage;
+        if(this.bills[i] < 100) {
+          percentage = 0.20;
+        } else if (this.bills[i] >= 100 && this.bills[i] < 300) {
+          percentage = 0.10;
+        } else {
+          percentage = 0.25
+        }
+        this.tips[i] = this.bills[i] * percentage;
+        this.totals[i] = this.bills[i] * (1 + percentage);
+      }
+    }
+  };
+
+  john.tipCalculator();
   mark.tipCalculator();
-  console.log(mark.tips)
-  var averageJohn = 0;
-  var averageMark = 0;
-
-  function tipAverage(tips) {
-    var store = 0;
-    for(var i = 0; i < tips.length; i++) {
-      store += tips[i];
-    };
-    return store / tips.length;
+  console.log(john.tips);
+  console.log(mark.tips);
+  function calcAverage(tips) {
+    var average = 0;
+    for (var i = 0; i < tips.length; i++) {
+      average += tips[i];
+    }
+    return average = average / (tips.length - 1);
+    console.log(average);
   }
-averageMark = tipAverage(mark.tips);
-averageJohn = tipAverage(total.tip)
-console.log(averageMark);
+  john.averageTip = calcAverage(john.tips);
+  mark.averageTip = calcAverage(mark.tips);
 
-
-
-
-
-
-
-})()
+  if (john.averageTip > mark.averageTip) {
+    console.log(john.fullName + '\'s family pays higher tips with an average tip of ' + john.averageTip + '.');
+  } else{
+    console.log(mark.fullName + '\'s family pays higher tips with an average tip of ' + mark.averageTip + '.');
+  }
+})();
