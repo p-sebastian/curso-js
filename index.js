@@ -686,3 +686,10 @@
     console.log(mark.fullName + '\'s family pays higher tips with an average tip of ' + mark.averageTip + '.');
   }
 })();
+
+
+////////Section 3 How Javascript works behind the scenes
+
+(() => {
+
+})();
