@@ -555,3 +555,75 @@
       }
 
 })();
+
+
+(() => {
+  //coding Challenge 5
+  var total = {
+    bills: [124, 48, 268, 180, 42],
+    tip: [],
+    totals: [],
+    tipCalculator: function() {
+      for (var i = 0; i < this.bills.length; i++) {
+        if (this.bills[i] < 50) {
+          this.tip.push (this.bills[i] * 0.20);
+          this.totals.push (this.bills[i] * 1.20)
+        } else if (this.bills[i] >= 50 && this.bills[i] < 200) {
+          this.tip.push (this.bills[i] * 0.15);
+          this.totals.push (this.bills[i] * 1.15)
+        } else {
+          this.tip.push (this.bills[i] * 0.10);
+          this.totals.push (this.bills[i] * 1.10);
+        }
+      }
+      return this.totals;
+    }
+  };
+  total.tipCalculator();
+  console.log(total.tip);
+  console.log(total.totals);
+ 
+
+  var mark = {
+    bills: [77, 375, 110, 45],
+    tips: [],
+    totals: [],
+    tipCalculator: function() {
+      for (var i = 0; i < this.bills.length; i++) {
+        if (this.bills[i] < 100) {
+          this.tips.push (this.bills[i] * 0.20);
+          this.totals.push (this.bills[i] * 1.20)
+        } else if (this.bills[i] >= 100 && this.bills[i] < 300) {
+          this.tips.push (this.bills[i] * 0.10);
+          this.totals.push (this.bills[i] * 1.10)
+        } else {
+          this.tips.push (this.bills[i] * 0.25);
+          this.totals.push (this.bills[i] * 1.25);
+        }
+      }
+      return this.totals;
+    }
+  };
+  mark.tipCalculator();
+  console.log(mark.tips)
+  var averageJohn = 0;
+  var averageMark = 0;
+
+  function tipAverage(tips) {
+    var store = 0;
+    for(var i = 0; i < tips.length; i++) {
+      store += tips[i];
+    };
+    return store / tips.length;
+  }
+averageMark = tipAverage(mark.tips);
+averageJohn = tipAverage(total.tip)
+console.log(averageMark);
+
+
+
+
+
+
+
+})()
