@@ -692,4 +692,36 @@
 
 (() => {
 
+  //this keyword
+
+  //console.log(this);    we can see that when loggin 'this' we get to the window object
+  function calculateAge(year) {
+    console.log(2018 - year);
+    console.log(this);
+  }
+  calculateAge(1985);
+
+  var edo = {
+    name: 'edo',
+    yearOfBirth: 1991,
+    calculateAge: function(year) {
+      console.log(this);
+      console.log(2018 - this.yearOfBirth);
+      //function innerFunctrion(){
+      //   console.log(this);
+      // }
+      // console.log(this);
+      // //esta funcion devolvera el window object ya que no esta directamente relacionada con un object.
+    }
+  }
+  
+  edo.calculateAge(1991);
+
+  var mike = {
+    name: 'Mike',
+    yearOfBirth: 1984,
+  };
+  mike.calculateAge = edo.calculateAge;
+
+  mike.calculateAge(mike.yearOfBirth);
 })();
