@@ -89,3 +89,33 @@ console.log(a);
   /**
    * in the execution phase we have all the thing the js engine creates and run the code
    */
+
+
+   //*******Single threaded synchronous execution
+   //single threaded:
+   //one comand is executed at a time
+   //programs are filled with many comands but only one is runing at a time
+   //JS is not the only thing going on in the browser
+   //synchronous====
+   // one line of code is executed in order at a time
+   //only one thing is happening at a time
+
+   /**Function invocation and the execution stack
+    * Invocation: to run or call a function, to call the function () are needed
+    * example
+    */
+   function b() {
+
+   };
+   function a() {
+     b();
+   };
+   a();
+   /**The execution context is created in order
+    * first the global execution context is created and all variables and function will be assigned a memory space
+    * each function creates an execution context
+    */
+
+    /**Functions, context, and variable environments
+     * variable environmnet: where the created variables live(where were they created), and how they interact with other variables
+     */
