@@ -503,3 +503,118 @@ function b(){
 //   lastName: 'Serrano'
 // });
 
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 3 lecture 32
+//Framewwork Aside: Faking Namespaces
+
+//Big word
+//Namespace: a container for variables and functions, used to keep variables and functions with the same name separate.
+
+// var greet = 'Hello';
+// var greet = 'Hola!';
+
+// console.log(greet);
+
+// var english = {};
+// var spanish = {};
+
+// english.greet = 'Helo!';
+// spanish.greet = 'Hola!';
+
+// console.log(english);
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 3 lecture 33
+//JSON and object literals
+
+
+//JSON: Javascript Object Notation, it is inspired in js object literal 
+
+// var objectLiteral = {
+//   firstName: 'Mary',
+//   isAProgrammer : true
+// };
+
+// //console.log(objectLiteral);
+
+// //console.log(JSON.stringify(objectLiteral));
+
+// var string = JSON.stringify(objectLiteral);
+// console.log(string);
+// //how should string look
+// var asExample = '{"firstName":"Mary","isAProgrammer":true}';
+// //how it should look as a string
+// var backToObject = JSON.parse(string);
+// console.log(backToObject);
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 3 lecture 34
+//Functions are objects
+
+// //big word
+// //First class functions: everything you can do with other types (objects, strings, numbers, booleans) you can do with functions.
+// //and assign them to variables, pass them around, create them on the fly
+
+// function greet() {
+//   console.log('hi');
+
+// }
+// greet.language = 'english';
+
+// console.log(greet);
+// console.log(greet.language);
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 3 lecture 35
+//Function statement and function expressions 
+
+//Big Word
+//Expression: a unit of code that results ina avalue, it doesn't have to be saved in a variable
+//example
+var a; 
+if (a === 3) {
+
+}
+//if is an statement and it just does work but does not return a value
+
+
+//This is a function statement
+function greet() {
+  console.log('hi');
+}
+//the function does not result in a value, it is placed into memory but will not return a value until it is ecxecuted, and will not result in a value.
+
+
+//function expression
+
+var anonymousGreet = function() {
+  console.log('hi');
+} 
+//to call function expressions we do as follows
+anonymousGreet();
