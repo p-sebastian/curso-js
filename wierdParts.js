@@ -420,7 +420,7 @@ function b(){
 
 
 //////////////////////////////////////////////////////////////////////////////////
-//section 3 Lecture 30
+//section 4 Lecture 30
 // Objects and functions
 
 
@@ -469,7 +469,7 @@ function b(){
 
 
 //////////////////////////////////////////////////////////////////////////////
-//section 3 Lecture 31
+//section 4 Lecture 31
 // Objects and Object literals
 
 // //another way to create an object is as follows
@@ -511,7 +511,7 @@ function b(){
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Section 3 lecture 32
+//Section 4 lecture 32
 //Framewwork Aside: Faking Namespaces
 
 //Big word
@@ -537,7 +537,7 @@ function b(){
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-//Section 3 lecture 33
+//Section 4 lecture 33
 //JSON and object literals
 
 
@@ -569,7 +569,7 @@ function b(){
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-//Section 3 lecture 34
+//Section 4 lecture 34
 //Functions are objects
 
 // //big word
@@ -591,30 +591,241 @@ function b(){
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-//Section 3 lecture 35
+//Section 4 lecture 35
 //Function statement and function expressions 
 
 //Big Word
 //Expression: a unit of code that results ina avalue, it doesn't have to be saved in a variable
 //example
-var a; 
-if (a === 3) {
+// var a; 
+// if (a === 3) {
 
-}
-//if is an statement and it just does work but does not return a value
-
-
-//This is a function statement
-function greet() {
-  console.log('hi');
-}
-//the function does not result in a value, it is placed into memory but will not return a value until it is ecxecuted, and will not result in a value.
+// }
+// //if is an statement and it just does work but does not return a value
 
 
-//function expression
+// //This is a function statement
+// function greet() {
+//   console.log('hi');
+// }
+// //the function does not result in a value, it is placed into memory but will not return a value until it is ecxecuted, and will not result in a value.
 
-var anonymousGreet = function() {
-  console.log('hi');
-} 
-//to call function expressions we do as follows
-anonymousGreet();
+
+// //function expression
+
+// var anonymousGreet = function() {
+//   console.log('hi');
+// } 
+// //to call function expressions we do as follows
+// anonymousGreet();
+
+// function log(a) {
+//   console.log(a);
+// }
+
+// log(3);
+// log('hello');
+// log({
+//   hi: 'Hi',
+//   hello: 'Hello'
+// });
+// log([0,1,2,3,4,5,6,7,8,9]);
+
+// log(function() {
+//   console.log('hi')
+// });
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 36
+//by value vs by reference
+
+
+//if i have an object in js (or functions), when I set a variable = an object (a=object) I get an address in memory to reference the object,
+//if i sett a variable = to another variable which contains an object ((a=object) = b) it copies the same direction for the object in memory to reference the object but it does
+// make a copy of the object for the new variable, or creates a new object in memory
+
+//if a variable is = to a primitive (a=number/string/bloolean) it creates a copy especifically for the variable and an address in memory, if thast variable
+// is set = to another variable (b=a) the new variable will have a new copy of the primitive, this is knows as by value
+
+
+//examples
+// //by value
+// var a = 3;
+// var b;
+
+// b=a;
+
+// a = 5;
+// console.log(a);
+// console.log(b);
+
+// //as each hold a separate copy in memory for ther value after modifying a b continues to have the same value
+
+
+// //by reference (objects and functions)
+// var c = {
+//   greeting: 'hi'
+// };
+// var d;
+
+// d = c;
+// c.greeting = 'hello'; //object mutation
+
+
+
+// // js knows that c points to an object, so instead of setting d to a new memory space it just points to the space in memory where the object is stored
+
+// //Big Word
+
+// //mutate: to change something, 'immutable' means that it canot be changed.// to mutate an object is to change something in it.
+
+// console.log(c);
+// console.log(d);
+
+// //primitives are passed by value and objects by reference
+
+// function changeGreeting(obj) {
+//   obj.greeting = 'hola';
+// }
+// //obj point to the same memory space as d, so the object that is referenced to d and c is mutated
+
+// changeGreeting(d);
+
+// console.log(c);
+// console.log(d);
+
+// c = {
+//   greeting: 'howdy'
+// };
+
+// console.log(c);
+// console.log(d);
+// //now even though i am setting C = to another object that has the same name, because I am using the '=' operator to set it, it is allocated a new space in memory
+// //to mutate the same object dot notation should be used
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 37
+//Objects, functions, and 'this'
+
+// //reminder
+
+// //when fuinction is called a new execution context is created and put in the execution stack, that determines how the code is run.
+
+// //the execution context  of a function focuses on the code portion of the function object
+
+// //every time an execution context is created (every time a function un called) it creates the 'this' variable, it will be pointing at a different object depending on
+
+// //how the function is invoked
+
+// //end of the reminder
+
+// console.log(this);
+// //this fot the global execution context is the window object
+
+// function a() {
+//   console.log(this);
+// }
+
+// a();
+// //for the function, 'this' is also pointing at the window object
+
+// var b = function() {
+//   console.log(this);
+//   this.newVariable = 'hello';
+// }
+// b();
+// //the 'this' variable in this case is also pointing at the window object
+// //as the 'this' variable points to the global object, I can create a variable on the global object(or the closest parent node) from the b function
+
+// console.log(newVariable);
+
+
+// var c = {
+//   name: 'The c object',
+//   log: function() {
+//     this.name = 'updated c object',
+//     console.log(this);
+//     var setName = function(newName) {
+//       this.name = newName
+//     }
+//     setName('Updated again! the c object')
+//     console.log(this);
+//     //this console log does not show the updated name as was expected, but instead added the name variable to the window object.
+//     //when the setName function ran the 'this' pointed to the window object. 
+//     //to prevent this issue from happening look at the floowing functions for variable d.
+//   }
+// };
+
+// c.log();
+
+
+// var d = {
+//   name: 'The c object',
+//   log: function() {
+//     var self = this;
+//     //self will be set to reference(because we are in an abject) to what the 'this' keyword points in memory
+
+
+//     self.name = 'updated c object',
+//     console.log(self);
+    
+//     var setName = function(newName) {
+//       self.name = newName
+//       //self is not declared within this function, so js will look down the scope chain until it finds the variable, where it lays self still points to the d object reference in memory
+
+//     }
+//     setName('Updated again! the c object')
+//     console.log(self);
+//   }
+// };
+// d.log();
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 39
+//Arrays, collections of anything
+
+//an array is a collectiopn and hold many things inside of it
+//arrays can hold any kind of data, primitives and objects
+// var arr = [
+//   1,
+//   false,
+//    {
+//      name: 'edo',
+//      address: 'somewhere'
+//    }, 
+//    function(name) {
+//      var greeting = 'hello ';
+//      console.log(greeting + name)
+//    }];
+
+//    console.log(arr);
+//    arr[3](arr[2].name);
+
+
