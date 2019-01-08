@@ -808,7 +808,7 @@ function b(){
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-//Section 4 lecture 39
+//Section 4 lecture 38
 //Arrays, collections of anything
 
 //an array is a collectiopn and hold many things inside of it
@@ -829,3 +829,176 @@ function b(){
 //    arr[3](arr[2].name);
 
 
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 39
+//Arguments and spread
+
+
+//Big Word
+//arguments: the parameters you pass to a function
+//  JS gives a keyoword of the same name which contains them all
+
+
+// function greet(firstName, lastName, language) {
+
+//   console.log(firstName);
+//   console.log(lastName);
+//   console.log(language);
+//   console.log('------------');
+// }
+
+// greet();
+// //i can call greet without passing any parameter and i will not get an error, in other languages it would happen
+// //hoisting sets up the the parameters and assigned them memory space and set them to undefined
+
+// greet('edo');
+// //functions read the parameters from the left to the right 
+// greet('edo', 'serrano');
+
+// greet('edo', 'serrano', 'es');
+
+
+// function greet2(firstName, lastName, language) {
+  
+//   language = language || 'en';
+//   console.log(firstName);
+//   console.log(lastName);
+//   console.log(language);
+//   console.log(arguments);
+//   //arguments contain a list of all the values that were passed to the function
+//   console.log('------------');
+// }  
+
+// greet2('edo');
+
+// function argument(firstName, lastName, language) {
+
+//   language = language || 'en';
+  
+//   if(arguments.length ===0) {
+//     console.log('No parameters.');
+//     console.log('---------');
+//     return; //use return to end the function, if not the function will continue running 
+//   }
+  
+//   console.log(firstName);
+//   console.log(lastName);
+//   console.log(language);
+//   console.log(arguments);
+//   console.log('arg 0 :' + arguments[0]); //arguments, is like an array but its not an array, it does not have all the functions as an array
+//   //arguments contain a list of all the values that were passed to the function
+  
+// }
+
+// argument('edo');
+
+// //new thigs used istead of the argument is the spread
+// function spreads(firstName, lastName, language, ...others) {
+
+//   // language = language || 'en';
+  
+//   // if(arguments.length ===0) {
+//   //   console.log('No parameters.');
+//   //   console.log('---------');
+//   //   return; //use return to end the function, if not the function will continue running 
+//   // }
+  
+//   console.log(firstName);
+//   console.log(lastName);
+//   console.log(language);
+//   console.log(...others);
+  
+// }
+// const arr = ['sebastian', 'penafiel', 'nihongo', 'hola', 'etc', 'senpai'];
+
+// spreads(...arr);
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 40
+//Function overloading
+
+//Js does not have function overloading while other languages do have
+
+//function overloading is having functions with the same name but with different amount of arguments, in JS you can pass as many arguments to a function
+//as you like even if they are not defined.
+
+// function greet(firstName, lastName, language) {
+//   language = language || 'en';
+
+//   if (language === 'en') {
+//     console.log('Hello ' + firstName + ' ' + lastName);
+
+//   }
+
+//   if (language === 'es') {
+//     console.log('Hola ' + firstName + ' ' + lastName);
+
+//   }
+
+// }
+
+// function greetEnglish(firstName, lastName) {
+//   greet(firstName, lastName, 'en');
+// }
+
+// function greetSpanish(firstName, lastName) {
+//   greet(firstName, lastName, 'es');
+// }
+
+// greet('edo', 'serrano', 'en');
+// greet('edo', 'serrano', 'es');
+
+
+// greetEnglish('edo', 'serrano');
+// greetSpanish('edo', 'serrano');
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 41
+//Syntax Parsers
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 42
+//Automatic semicolon insertion
+
+//sintax parser in JS tries to be helpful. by placing a semicolon wherever it thinks one semicolon should be.
+//ALLWAYS PLACE THE SEMICOLONS ESPECIALY ON RETURNS
+
+
+// function getPerson() {
+
+//   return
+//   //I get undefined because I placed enter and placed the object in a new line, the object should have started on the same line as the return, that way the parser will see
+//   //curly braces and will know that it is not finishing the function but returning an array.
+//   {
+//     firstName: 'Edo';
+//   }
+// }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 43
+//AWhitespace
