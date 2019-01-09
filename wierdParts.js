@@ -1002,3 +1002,188 @@ function b(){
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //Section 4 lecture 43
 //AWhitespace
+//whitespace: is an invisible characters that creates literal 'space' in your written code
+
+// var 
+// //first name of the person
+// firstName,
+// //last name of the person
+// lastName, 
+// //languge of the person
+// //can be 'en' or 'es'
+// language;
+// var person {
+//   //the first name 
+//   firstName: 'Edo',
+//   //the last name
+//   //(required!)
+//   lastName: 'Serrano'
+// };
+
+// console.log(person);
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 44
+//immediately invoked function expressions (IIFE)
+
+// //function statement
+// function greet(nane) {
+//   console.log('hello' + name);
+// }
+
+// //we nned to call a function to execute
+// greet()
+
+
+// //function expression
+// var greetFunc = function(name) {
+//   console.log('Hello ' + name);
+// }
+
+// greetFunc();
+
+
+
+// //using an immediately invoked function expression (IIFE)
+// var greeting = function(name) {
+//   return 'Hello ' + name;
+// }();
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 44
+//IIFES and safe code
+
+//IIFE
+// (function(name) {
+
+//   var greeting = 'hola';
+//   console.log(greeting + ' ' + name);
+// })('Edo');
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 45
+//Closures part 1
+
+//Big Word
+//Closures: no big word  );
+
+// //explanation of closures
+// //when code starts we have a global execution context
+// function greet(whattosay) {
+
+//   return function(name) {
+//     console.log(whattosay + ' ' + name);
+//   }
+
+// }
+
+
+// greet('Hi')('Edo');
+
+// var sayHi = greet('Hi');
+// //with the previous line I invoke the function and create itsd own execution context, creating also the passed variable 'whattosay'
+// //then returns a new function obj, it creates function and returns it. after which the execution context for the greet function 
+// //gets out of the stack as it finished already
+// sayHi('Edo');
+// //with this line a new execution context is created  and when that code is invoked it will go up the scope chain
+// // when line of the console log is run and js sees the whattosay variable, as it didn't find it within the function
+// //it look up the scope chain.
+// //the sayHi() still has a reference to what it was in its parents function memory space
+
+// function sum(num1) {
+
+//   return function(num2) {
+    
+//     return function (num3) {
+      
+//       return function (num4) {
+//         console.log(this);
+//         return num1 + num2 + num3 + num4;
+//       }
+//     }
+//   }
+// }
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 46
+//Closures part 2
+
+
+
+function buildFunctions() {
+
+  var arr = [];
+
+  for (var i = 0; i < 3; i++) {
+
+    arr.push(
+      function() {
+        console.log(i)
+      }
+    )
+  }
+  return arr;
+}
+
+
+
+var fs = buildFunctions();
+
+fs[0]();
+fs[1]();
+fs[2]();
+
+
+
+
+
+
+
+
+
+
+
+
+
+function buildFunctions2() {
+
+  var arr = [];
+
+  for (var i = 0; i < 3; i++) {
+    arr.push(
+      (function(j) {
+        return function() {
+          console.log(j)
+        }
+      })(i)
+    )
+  }
+  return arr;
+}
+
+
+
+var fs2 = buildFunctions2();
+
+fs2[0]();
+fs2[1]();
+fs2[2]();
