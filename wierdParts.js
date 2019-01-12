@@ -1124,66 +1124,268 @@ function b(){
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
-//Section 4 lecture 46
+//Section 4 lecture 47
 //Closures part 2
 
 
 
-function buildFunctions() {
+// function buildFunctions() {
 
-  var arr = [];
+//   var arr = [];
 
-  for (var i = 0; i < 3; i++) {
+//   for (var i = 0; i < 3; i++) {
 
-    arr.push(
-      function() {
-        console.log(i)
-      }
+//     arr.push(
+//       function() {
+//         console.log(i)
+//       }
+//     )
+//   }
+//   return arr;
+// }
+
+
+
+// var fs = buildFunctions();
+
+// fs[0]();
+// fs[1]();
+// fs[2]();
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function buildFunctions2() {
+
+//   var arr = [];
+
+//   for (var i = 0; i < 3; i++) {
+//     arr.push(
+//       (function(j) {
+//         return function() {
+//           console.log(j)
+//         }
+//       })(i)
+//     )
+//   }
+//   return arr;
+// }
+
+
+
+// var fs2 = buildFunctions2();
+
+// fs2[0]();
+// fs2[1]();
+// fs2[2]();
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 48
+//Function Factories
+
+
+// function makeGreeting(language) {
+
+
+
+//   return function(firstName, language) {
+//     if (language === 'en') {
+//       console.log('Hello ' + firstName + ' ' + lastName);
+//     }
+//     if (language === 'es') {
+//       console.log('Hola ' + firstName + ' ' + lastName);
+//     }
+//   }
+// }
+
+
+// var greetEnglish = makeGreeting('en');
+// var greetSpanish = makeGreeting('es');
+
+// greetEnglish('Edo', 'Serrano');
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 4 lecture 49
+//Closures and callbacks
+
+
+// function sayHiLater() {
+//   var greeting = 'Hi';
+//   setTimeout(function() {
+//     console.log('say ' + greeting + ' later.');
+
+//   }, 3000);
+// }
+
+
+// sayHiLater();
+
+// // //jquery uses function expressions and first class functions
+// // $('button').click(function() {
+
+// // });
+
+
+
+// //Big Word///////////////
+// //Callback Function: a function you give to another function, to be tun when the other function is finished
+// //so the function you call (invoke) , 'calls back' calling the function you gave it when it finishes
+
+// function tellMeWhenDone(callback) {
+//   var a = 1000; //some work
+//   var b = 2000; // some work
+//   callback();
+
+// }
+
+// tellMeWhenDone(function() {
+//   console.log('I am done');
+// })
+
+// tellMeWhenDone(function() {
+//   alert('I am done');
+// })
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//section 4 Lecture 50
+//call(), apply(), bind()
+
+//functions are special type of object that can have a name property and have a code property, all JS functions 
+//have access to some methods that are call(), bind() and apply()
+
+
+
+// var person = {
+//   firstName: 'Edo',
+//   lastName: 'Serrano',
+//   getFullName: function() {
+
+
+//     var fullName = this.firstName + ' ' + this.lastName;
+//     return fullName;
+//   }
+// }
+
+
+// var logName = function(lang1, lang2) {
+//   console.log('Logged: ' + this.getFullName());
+//   console.log('arguments: ' + lang1 + ' ' + lang2);
+//   console.log('----------------');
+// }
+
+// var logPersonName = logName.bind(person);
+// //bind indicates to which object link to use the 'this'  variable
+
+// logPersonName('English', 'Spanish');
+
+
+
+// logName.call(person, 'english', 'spanish');
+// //works the same as the parenthesis, but allows me to controll the this variable as well.
+
+
+// logName.apply(person, ['en', 'es']);
+// //the same as call but it accepts an array as argument
+
+
+
+
+// (function(lang1, lang2) {
+//   console.log('Logged: ' + this.getFullName());
+//   console.log('arguments: ' + lang1 + ' ' + lang2);
+//   console.log('----------------');
+// }).apply(person, ['es', 'en']);
+
+
+
+// //function borrowing
+// var person2 = {
+//   firstName: 'Sebastian',
+//   lastName: 'Penafiel'
+// }
+
+// console.log(person.getFullName.apply(person2));
+
+
+
+// //function currying
+// function multiply(a, b) {
+//   return a*b;
+// }
+
+// var multiplyByTwo = multiply.bind(this, 2);
+
+// console.log(multiplyByTwo(5));
+
+
+
+// //Big Word
+// //Function Currying: creating a copy of a function but with some preset parameters
+
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////
+//section 4 lecture 51
+//functional programming
+
+
+function mapForEach(arr, fn) {
+
+  var newArr = [];
+  for (var i = 0; i < arr.length; i++) {
+    newArr.push(
+      fn(arr[i])
     )
   }
-  return arr;
+  return newArr;
 }
 
 
 
-var fs = buildFunctions();
+var arr1 = [1, 2, 3];
+console.log(arr1);
 
-fs[0]();
-fs[1]();
-fs[2]();
+var arr2 = [];
+for (var i = 0; i < arr1.length; i++) {
+  
+  arr2.push(arr1[i] * 2);
 
-
-
-
-
-
-
-
-
-
-
-
-
-function buildFunctions2() {
-
-  var arr = [];
-
-  for (var i = 0; i < 3; i++) {
-    arr.push(
-      (function(j) {
-        return function() {
-          console.log(j)
-        }
-      })(i)
-    )
-  }
-  return arr;
 }
 
-
-
-var fs2 = buildFunctions2();
-
-fs2[0]();
-fs2[1]();
-fs2[2]();
+console.log(arr2);
