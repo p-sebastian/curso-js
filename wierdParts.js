@@ -1365,27 +1365,257 @@ function b(){
 //functional programming
 
 
-function mapForEach(arr, fn) {
-
-  var newArr = [];
-  for (var i = 0; i < arr.length; i++) {
-    newArr.push(
-      fn(arr[i])
-    )
-  }
-  return newArr;
-}
 
 
 
-var arr1 = [1, 2, 3];
-console.log(arr1);
+// var arr1 = [1, 2, 3];
+// console.log(arr1);
 
-var arr2 = [];
-for (var i = 0; i < arr1.length; i++) {
+// var arr2 = [];
+// for (var i = 0; i < arr1.length; i++) {
   
-  arr2.push(arr1[i] * 2);
+//   arr2.push(arr1[i] * 2);
 
+// }
+
+// console.log(arr2);
+
+
+// function mapForEach(arr, fn) {
+// //create a fn that accepts 2 parameters, an array and a function to modify and remap the array
+//   var newArr = [];
+//   //a new array to be mapped
+//   for (var i = 0; i < arr.length; i++) {
+//     newArr.push(
+//       fn(arr[i])
+//       //when the function is called an empty array is created, and a for loop to fill it is run
+//       //for each itteraton of the for loop a ffunction passed as parameter is run taking the arr parameter as its parameter as well
+//       )
+//   }
+//   return newArr;
+// }
+// arr2 = mapForEach(arr1, function(item) {
+//   return item * 2;
+// //the function is run taking a previously created array as a parameter and an anonymous function as the second parameter
+// //the anonimous function replaces the fn on line 1390 and for each iteration of the for loop multiplies the array value on i location by 2
+// //then it will retuirn the value in form of an array and set arr2 = to that new array
+// });
+
+// console.log(arr2);
+
+// var arr3 = mapForEach(arr1, function(item) {
+//   return item > 2;
+//   //this can also work with boolean values, it repeats the function but this time it will compare values and return either true or false in arrays
+
+
+// });
+// console.log(arr3);
+
+// var checkPasLimit = function(limiter, item) {
+// //on the previous example, arr3, it is not the best practice because you are hard coding the comparison variable (2), so this function seeks 
+// //to make it more modular by asking for both values the limiter (or comparison) and the item(which will be the arr passed to the mapForEach function) 
+  
+// return item > limiter;
+// //it will return true or false depending on the comparison made in an array form
+// };
+
+// var arr4 = mapForEach(arr1, checkPasLimit.bind(this, 1));
+// //as the fn parameter on the mapForEach function (line 1384) will only accept one parameter so checkPastLimit function will not work as it needs 2 parameters
+// //to make it work we use the .bind prototype to preset values for the chechPastLimit.
+// //in the checkPasLimit.bind parameters, there is no object we need to point to use the this variable so it can be set to null or this
+// //the second parameter will be the limiter for the function, by doing so a copy of the function checkpaslimit holding the first parameter is saved
+// //which needs only the item parameter to run, and passed to the mapforeach so when the line 1390 will turn to this when function runs=
+// //line 1390 = checkPasLimit(1, arr[i]) being 1 the preset value.
+// console.log(arr4);
+
+// var limit = function(limiter) {
+//   //with  this function expression I am creating a function that recieves only the limiter parameter 
+//   //and returning a copy of the checkPasLimit that contains the this variable and the limiter value that I decide
+  
+//   return checkPasLimit.bind(this, limiter);
+//   //so if limit(5) = checkPasLimit(this, 5)
+// }
+
+// var arr5 = mapForEach(arr1, limit(2));
+// console.log(arr5);
+
+//const _ = require('underscore');
+
+/////////////////////////////////////////////////////////////
+//section 4 lecture 52
+//functional programming Part 2 
+
+// //use of underscore
+// var arr1 = [1, 2, 3];
+// var arr6 = _.map(arr1, function(item) {
+//   return item * 5
+// })
+// console.log(arr6);
+
+// var arr7 =_.filter([2,3,4,5,6,7], function(item) {
+//   return item %2 === 0;
+// });
+
+// console.log(arr7);
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 5 Lecture 53
+//CLassical vs prototypical inheritance
+
+//conceptual aside
+//Big Word
+//Inheritance: one object get access to another object's methods and properties.
+
+
+//Classical inheritance:
+//its a way to share methods and properties in objects, (the most popular way which was done for a long time)
+//very verbose, becomes too large and hard to figure out how they affect other objects
+
+
+//prototypal inheritance:
+  //very flexible, extensible and easy to undertand
+
+
+
+
+
+
+
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////
+//Section 5 Lecture 54
+//Understanding the prototype
+
+//prototype: objects can have properties and methods which can be accessed using the . operator (esample object.property), JS add properties
+//and methods to all abjects and all have a prototype properties
+
+
+// var person = {
+//   firstName: 'default',
+//   lastName: 'default',
+//   getFullName: function() {
+//     return this.firstName + ' ' + this.lastName;
+//   }
+// }
+
+
+
+// var edo = {
+//   firstName: 'Edo',
+//   lastName: 'Serrano'
+// }
+
+// //what follows is an example, just to understand DONT YOU DARE USE IT
+
+// edo.__proto__ = person;
+// //now john inherits from person 
+// console.log(edo.getFullName());
+
+
+// var jane ={
+//   firstName : 'Jane'
+// }
+// jane.__proto__ = person;
+// console.log(jane.getFullName());
+
+
+
+
+
+
+
+
+
+
+// ///////////////////////////////////////////////////////////////////////////////////////////////////////
+// //Section 5 Lecture 55
+// //Evertything is an object (or a promitive)
+
+// var a = {};
+// var b = function () {};
+// var c = [];
+// //in the browser console we can access all of its prototypes
+
+
+
+
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 5 Lecture 56
+// Reflection and extend
+
+
+//Big Word:
+//Reflection: an object can look at itself listinf and changing its propertiers and methods
+
+
+var person = {
+  firstName: 'default',
+  lastName: 'default',
+  getFullName: function() {
+    return this.firstName + ' ' + this.lastName;
+  }
 }
 
-console.log(arr2);
+
+
+var edo = {
+  firstName: 'Edo',
+  lastName: 'Serrano'
+}
+
+//what follows is an example, just to understand DONT YOU DARE USE IT
+
+edo.__proto__ = person;
+//now edo inherits from person 
+
+
+//example of reflection
+for (var prop in edo) {
+  //the 'for in ' statement is like the for each statement, 
+  //it will loop every member of the object, for every loop we will have a var called prop wich will hold the value of the current member
+  //in this case prop will only hold the key name (firstName and lastName)
+  if (edo.hasOwnProperty(prop)) {
+    //the hasOwnProperty looks if the property passed as a parameter exist within the object, if so it will be truthy, if it exist not in the object
+    //but in the proto it will be falsy
+  console.log(prop + ': ' + edo[prop]);
+  }
+}
+//when logged to the console, it loged not only the values of the 'edo; object but also of its prototype. Sometimes i need only to log the values 
+//for the oibject and not the prototype, to do so go to line # 1585
+
+
+
+
+
+
+//using undescore
+
+var jane = {
+  address: '111 main st.',
+  getFormalFullName: function() {
+    return this.lastName + ', ' + this.firstName;
+  }
+}
+
+var jim = {
+  getFirstName: function() {
+    return firstName;
+  }
+}
+
+
+_.extend(edo, jane, jim);
+//_.extend 
+//copies the properties and methods of other objects into one object, NOT INTO PROTO
+//the first parameter is the object to wich you will copy(the object you want to extend), and the others are the ones that will be copied
+//it combines all of those objects into one, but if there are nested objects those will not be phisically copied but only refference will be created
+console.log(edo);
+
