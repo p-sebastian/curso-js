@@ -1556,66 +1556,180 @@ function b(){
 //Reflection: an object can look at itself listinf and changing its propertiers and methods
 
 
-var person = {
-  firstName: 'default',
-  lastName: 'default',
-  getFullName: function() {
-    return this.firstName + ' ' + this.lastName;
-  }
-}
+// var person = {
+//   firstName: 'default',
+//   lastName: 'default',
+//   getFullName: function() {
+//     return this.firstName + ' ' + this.lastName;
+//   }
+// }
 
 
 
-var edo = {
-  firstName: 'Edo',
-  lastName: 'Serrano'
-}
+// var edo = {
+//   firstName: 'Edo',
+//   lastName: 'Serrano'
+// }
 
-//what follows is an example, just to understand DONT YOU DARE USE IT
+// //what follows is an example, just to understand DONT YOU DARE USE IT
 
-edo.__proto__ = person;
-//now edo inherits from person 
-
-
-//example of reflection
-for (var prop in edo) {
-  //the 'for in ' statement is like the for each statement, 
-  //it will loop every member of the object, for every loop we will have a var called prop wich will hold the value of the current member
-  //in this case prop will only hold the key name (firstName and lastName)
-  if (edo.hasOwnProperty(prop)) {
-    //the hasOwnProperty looks if the property passed as a parameter exist within the object, if so it will be truthy, if it exist not in the object
-    //but in the proto it will be falsy
-  console.log(prop + ': ' + edo[prop]);
-  }
-}
-//when logged to the console, it loged not only the values of the 'edo; object but also of its prototype. Sometimes i need only to log the values 
-//for the oibject and not the prototype, to do so go to line # 1585
+// edo.__proto__ = person;
+// //now edo inherits from person 
 
 
+// //example of reflection
+// for (var prop in edo) {
+//   //the 'for in ' statement is like the for each statement, 
+//   //it will loop every member of the object, for every loop we will have a var called prop wich will hold the value of the current member
+//   //in this case prop will only hold the key name (firstName and lastName)
+//   if (edo.hasOwnProperty(prop)) {
+//     //the hasOwnProperty looks if the property passed as a parameter exist within the object, if so it will be truthy, if it exist not in the object
+//     //but in the proto it will be falsy
+//   console.log(prop + ': ' + edo[prop]);
+//   }
+// }
+// //when logged to the console, it loged not only the values of the 'edo; object but also of its prototype. Sometimes i need only to log the values 
+// //for the oibject and not the prototype, to do so go to line # 1585
 
 
 
 
-//using undescore
-
-var jane = {
-  address: '111 main st.',
-  getFormalFullName: function() {
-    return this.lastName + ', ' + this.firstName;
-  }
-}
-
-var jim = {
-  getFirstName: function() {
-    return firstName;
-  }
-}
 
 
-_.extend(edo, jane, jim);
-//_.extend 
-//copies the properties and methods of other objects into one object, NOT INTO PROTO
-//the first parameter is the object to wich you will copy(the object you want to extend), and the others are the ones that will be copied
-//it combines all of those objects into one, but if there are nested objects those will not be phisically copied but only refference will be created
-console.log(edo);
+// //using undescore
 
+// var jane = {
+//   address: '111 main st.',
+//   getFormalFullName: function() {
+//     return this.lastName + ', ' + this.firstName;
+//   }
+// }
+
+// var jim = {
+//   getFirstName: function() {
+//     return firstName;
+//   }
+// }
+
+
+// _.extend(edo, jane, jim);
+// //_.extend 
+// //copies the properties and methods of other objects into one object, NOT INTO PROTO
+// //the first parameter is the object to wich you will copy(the object you want to extend), and the others are the ones that will be copied
+// //it combines all of those objects into one, but if there are nested objects those will not be phisically copied but only refference will be created
+// console.log(edo);
+
+
+
+
+
+
+
+
+
+
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 6 Lecture 57
+// Function constructors 'new', and history of javascript
+
+
+// //Building Objects
+// //first way of building objects 
+// //functions constreuctors and the 'new'
+
+
+// function Person() {
+//   this.firstName = 'John',
+//   this.lastName = 'Doe'
+//   //if i return something from this function the constructor process would have been interrupted 
+// }
+
+
+// var john = new Person();
+// //when 'new' is used an empty object is created and after wich the function is invoked, and as the function is being run 
+// //within a new empty object, the this variable is pointing to this new empty object and sets the firstName and lastName
+
+
+// console.log(john);
+
+
+// function Dog(breed, name, owner) {
+//   this.breed = breed;
+//   this.name = name;
+//   this.owner = owner;
+// }
+
+// var spunky = new Dog('husky', 'Spunky', 'Edo');
+// console.log(spunky);
+
+// var coco = new Dog('Shih Tzu', 'Coco', 'Edo');
+// console.log(coco);
+
+
+//Big Word
+//Function constructor: a normal function used to construct objects, when the 'new' operator is placed before calling a function the 'this' variable
+//taht is created during the creation phase of the execution context is set to the new object and that object is returned from the function
+//when the function finishes executing
+
+
+
+
+
+
+
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 6 Lecture 58
+// Function constreoctyors and .prototype
+
+
+
+// function Dog(breed, name, owner) {    
+//   this.breed = breed;
+//   this.name = name;
+//   this.owner = owner;
+// }
+
+// var spunky = new Dog('husky', 'Spunky', 'Edo');
+// console.log(spunky);
+
+// var coco = new Dog('Shih Tzu', 'Coco', 'Edo');
+// console.log(coco);
+
+// //when using a function constructor the prototype is already created
+// //the protitype is used only when the function is used as an object constructor
+
+
+// Dog.prototype.nextBathDay = function (daysSinceLastBath) {
+//   //. prototype is a function property, by writting 'Dog.prototype' I am geting to the prototype obj this way what I create will be stored there
+//   //and be accesible to all the instances of the constructor
+  
+//   var bathInterval = 15;
+//   if (daysSinceLastBath > bathInterval) {
+//     console.log('you should have bathed ' + this.name + ' ' +  (daysSinceLastBath - bathInterval) + ' days ago.');
+//   }
+//   if (daysSinceLastBath === bathInterval) {
+//     console.log('you should have bathe ' + this.name + ' today.');
+//   }
+//   if (daysSinceLastBath < bathInterval) {
+//     console.log('you should bathe ' + this.name + ' in ' +  (bathInterval - daysSinceLastBath) + ' days.');
+//   }
+// }
+
+// spunky.nextBathDay(15);
+
+
+
+
+
+
+
+
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 6 Lecture 59
+// Dangerous aside: 'new' and functions
