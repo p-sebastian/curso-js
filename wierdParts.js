@@ -1733,3 +1733,132 @@ function b(){
 // /////////////////////////////////////////////////////////////////////////////////////////////////////
 // Section 6 Lecture 59
 // Dangerous aside: 'new' and functions
+
+//DO NOT FORGET TO USE 'NEW' BEFORE USEN A FUNCTION CONSTRUCTOR
+
+
+
+
+
+
+
+
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 6 Lecture 60
+// Built in function constructors
+
+
+// //there are some built in functions constructors in JS
+// // example var a = new Number(3)
+// var a = new String('Edo');
+
+// console.log(a);
+// console.log('edo'.length);
+// console.log(new Date);
+
+// //this object constructors look like you are creating a primitive but you are actually creating an object
+// //when created like this those primitives gain properties
+
+
+// //to add a feature to all string in js
+// //as js will bow the string in an object to allow them to get properties
+
+// String.prototype.isLengthGreaterThan = function(limit) {
+//   return this.length > limit;
+// }
+
+// console.log('eduardo serrano'.isLengthGreaterThan(5));
+
+
+
+
+
+
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 6 Lecture 61
+// Built in function constructors dangers
+
+//you should use them only when necesary
+
+// var a = 3;
+// var b = new Number(3);
+// console.log(a == b);
+// //it is coherced thats why it gives true
+// console.log( a === b );
+// //a and b are not equal as a IS a primitive while b is actually an object
+
+// //terrific library         momentjs.com
+// //you should use this library when working with time
+
+
+
+
+
+
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 6 Lecture 62
+// arrays and for in
+
+
+
+// //arrays are objects 
+// Array.prototype.myCustomFeature = 'cool';
+// var arr = ['edo', 'sebas', 'aka'];
+
+// for (var prop in arr) {
+//   console.log(prop + ': ' + arr[prop]);
+// }
+
+// //for arrays DO NOT USE FOR IN, just use regular for loops
+
+
+
+
+
+
+
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 6 Lecture 63
+// object.create and pure prototypal inheritance
+
+//object.create is another way to create objects that do not mimic other languages 
+
+// var person = {
+//   firstName: 'default',
+//   lastName: 'default',
+//   greet: function() {
+//     return 'Hi ' + this.firstName
+//   }
+// }
+
+
+
+// //now I will use a new way to build objects
+
+// var edo = Object.create(person);
+
+// console.log(edo);
+
+// console.log(edo.greet());
+// //it creates a new empty array with the prototype for person but in order to fill the object is must be filled manually 
+
+// edo.firstName = 'Edo';
+// edo.lastName = 'Serrano';
+
+// console.log(edo.greet());
+
+
+//Big Word
+//polyfill: code that adds a feature which the engine my lack
+
+
+//if i am working in an older engine that does not support the Object.create 
+
