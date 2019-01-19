@@ -1862,3 +1862,189 @@ function b(){
 
 //if i am working in an older engine that does not support the Object.create 
 
+
+
+
+
+
+
+
+
+// /////////////////////////////////////////////////////////////////////////////////////////////////////
+// Section 6 Lecture 64
+// ES6 and Classes
+
+
+//JS does not have classes but will have them in the next version (ES6)
+
+//what will a class look like
+//a js class describes an object, you have a constructure and you can preset its values
+//in other programing languages classes are not objects but tells how the class should look like
+//class will look likew this
+
+// class Person {
+//   constructor(firstName, lastName) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     //the constructor takes the place instead of the function when cmaking a function constructor in previously made function constructors
+//     //this is phisically copied within the new object.
+//   }
+//   //evrything outside the constructor will be in the prototype
+//   greet() {
+//     return 'Hi ' + this.firstName;
+//   }
+// }
+
+
+
+// var john = new Person('John', 'Doe');
+
+
+// class InformalPerson extends Person {
+//   constructor (firstName, lastName, age) {
+//     super(firstName, lastName);
+//     this.age = age;
+//   }
+
+
+//   greet2() {
+//     return 'Yo ' + this.firstName;
+//   }
+// }
+
+
+// var edo = new InformalPerson('Edo', 'Serrano', 10);
+
+// console.log(edo.greet());
+
+
+
+//Big Word: 
+//Syntactic Sugar: when you have a different way to type something in the code
+//that does not change the weay they work under the hood
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+//Section 7 Lecture 65 
+//Odds and Ends
+
+
+
+//initialization
+//to set up objects arrays and functions 
+
+// var people = [
+//   {
+//     firstName: '654654',
+//     lastName: 'ihjbgiujhoj',
+//     address:'ijhiuhiuh'
+//   },
+//   {
+//     firstName: '654654',
+//     lastName: 'ihjbgiujhoj',
+//     address:'ijhiuhiuh'
+//   },
+//   {
+//     firstName: '654654',
+//     lastName: 'ihjbgiujhoj',
+//     address:'ijhiuhiuh',
+//     greet: function() {
+//       return 'Hello!';
+//     }
+//   }
+// ];
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////
+//Section 7 Lecture 66 
+//typeof, instanceof, and figuring out what something is
+
+
+
+//if you have a variable and need to know what kind of variable is 
+
+
+
+// var a = 3;
+// console.log(typeof a);
+
+// var b = 'Hi';
+// console.log(typeof b);
+
+// var c = {};
+// console.log(typeof c);
+// var d = [];
+// console.log(typeof d);
+// console.log(Object.prototype.toString.call(d));
+
+// function Person(name) {
+//   this.name = name;
+// }
+
+// var e = new Person('edo');
+// console.log(typeof e);
+// console.log(e instanceof Person);
+
+// console.log(typeof undefined);
+// console.log(typeof null);
+// var z = function() {};
+// console.log(z);
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+//Section 7 Lecture 67
+//Strict Mode
+
+
+// //
+// var person;
+// //lets suposed I missedtiped person into persom
+// persom = {};
+
+// console.log(persom);
+// //even though I misedtyped the variable I can still log the 'persom'
+// //if using strict mode it will not allow tos equal a variable to any value if it has not been previously declared
+// //to use strict must be at the top of the file or a function in string for it to work
+
+// function logNewPerson() {
+//   'use strict';
+//   var person2;
+//   persom2 = {};
+//   console.log(persom2);
+//   console.log(person2);
+// }
+
+// logNewPerson();
+
+
+
+////////////////////////////////////////////////////////////////////////////
+//Section 8 Lecture 69
+//learning from others good code
