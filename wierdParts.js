@@ -2048,3 +2048,34 @@ function b(){
 ////////////////////////////////////////////////////////////////////////////
 //Section 8 Lecture 69
 //learning from others good code
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+//Section 8 Lecture 72
+//Deep Diving into source code
+
+//Big Word:
+//Method Chaining: calling one method after another and each method affect the parent object
+//
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////
+//Section 10 Lecture 81
+//Typescript, ES6, and transpiled languages
+
+//big word
+//Transpile: is to convert the sintax of one programming language, to another
+//in this case languages that dont really ever run anywhere, but instead are
+//processed by a 'transpiler' that generates javascript
+
+
+
+
+
